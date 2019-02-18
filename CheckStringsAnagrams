@@ -1,0 +1,49 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+
+/*
+ * Anagram Strings - re-arrange words and get 2 strings are anagram of each other
+ * listen = silent
+ * triangle = integral
+ *
+ * Steps : 
+ * 1 : Check length if not equal then not anagrams
+ * 2 : If equal length then Sort lettes in the word
+ * 3 : Compare both Strings
+*/
+
+public class CheckStringsAnagrams {
+
+     public static void main(String []args){
+        
+        String str1 = "triangle";
+        String str2 = "integral";
+        
+        if (str1.length() == str2.length()) {
+            List<Character> l1 = new ArrayList<Character>();
+            List<Character> l2 = new ArrayList<Character>();
+            for (int i = 0; i < str1.length(); i ++) {
+                l1.add(str1.charAt(i));
+                l2.add(str2.charAt(i));
+            }
+            
+            Collections.sort(l1);
+            Collections.sort(l2);
+            
+            boolean flag = true;
+            for (int j = 0; j < l1.size(); j++) {
+                if (l1.get(j) != l2.get(j)) {
+                    System.out.println("Given strings are not Anagram of each other.");
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag == true) {
+                System.out.println("Given strings are Anagram of each other.");
+            }
+        } else {
+            System.out.println("Given strings are not Anagram of each other.");
+        }
+     }
+}
